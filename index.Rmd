@@ -183,6 +183,14 @@ Lastly, watch this short video about common mistakes. Hopefully you won't make t
 [Voicethread: `ggplot()` mistakes](https://voicethread.com/share/15057175/)
 
 
+### Resources
+
+* [R4DS](https://r4ds.had.co.nz/data-visualisation.html) chapter 3  
+* [ggplot2 cheatsheet](https://rstudio.com/resources/cheatsheets/) (search for Data Visualization)  
+* [ggplot2 documentation](https://ggplot2.tidyverse.org/reference/index.html)
+* [R Color names](https://www.r-graph-gallery.com/42-colors-names.html) 
+
+
 ### Your turn!
 
 Now you have the tools you need to begin creating your own plots. As you work through these exercises, it will be helpful to have the *Data Visualization with `ggplot2`* cheatsheet open. Find the cheatsheet [here](https://rstudio.com/resources/cheatsheets/) or, from within R Studio, go to Help --> Cheatsheets and click on *Data Visualization with `ggplot2`*.
@@ -327,6 +335,28 @@ Operator  | Meaning
 `&`       | and
 `|`       | or
 
+
+The table below shows common functions you would use when you add a variable using `mutate()`. Find more in the `dplyr` cheatsheet linked in Resources.
+
+Function  | Meaning
+----------|--------
+`+`, `-`, `*`, `/`, `^` | Arithmetic operations
+`>`, `<`, etc.  | Logical operators (see above)
+`ifelse()`  | Used to create binary variable from non-binary
+`lag()`    | Offset elements by 1  
+`cumsum()` | cumulative sum()
+
+The table below shows common functions you would use when you add a summary variable using `summarize()`. Find more in the `dplyr` cheatsheet linked in Resources. With many of these functions, you can add `na.rm = TRUE` to remove missing values.
+
+Function  | Meaning
+----------|--------
+`n()` | number of rows
+`mean()`  | mean 
+`median()` | median
+`sum()`   | sum
+`sd()`   | standard deviation
+`IQR()`  | interquartile range
+
 Next, watch the video below that walks through some examples in R Studio. Just like with the `ggplot()` material, you can practice the `dplyr` problems along with me by downloading the R Markdown file and working through them. If you do that, you will likely get somewhat different results than you see in the video when using the `garden_harvest` data because the data is still changing everyday :)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PgZvq7ZPvEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -354,6 +384,12 @@ download_file(
   self_contained = FALSE
 )
 ```
+
+### Resources
+
+* [R4DS](https://r4ds.had.co.nz/transform.html) chapters 5 and 18 (especially [18.2.4](https://r4ds.had.co.nz/pipes.html#use-the-pipe))
+* [dplyr cheatsheet](https://rstudio.com/resources/cheatsheets/) (search for Transformation)  
+* [dplyr documentation](https://dplyr.tidyverse.org/reference/index.html)
 
 
 ### Your turn!
