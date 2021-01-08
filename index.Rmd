@@ -367,7 +367,7 @@ Function  | Meaning
 `sd()`   | standard deviation
 `IQR()`  | interquartile range
 
-Next, watch the video below that walks through some examples in R Studio. Just like with the `ggplot()` material, you can practice the `dplyr` problems along with me by downloading the R Markdown file and working through them. If you do that, you will likely get somewhat different results than you see in the video when using the `garden_harvest` data because the data is still changing everyday :)
+Next, watch the video below that walks through some examples in R Studio. Just like with the `ggplot()` material, you can practice the `dplyr` problems along with me by downloading the R Markdown file and working through them. If you do that, you will likely get somewhat different results than you see in the video when using the `garden_harvest` data because the data has changed since I made the video. At the time of the video, I was still collecting data from the garden :)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PgZvq7ZPvEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -395,16 +395,68 @@ download_file(
 )
 ```
 
+### A special note about the `group_by()` function
+
+In the demo video, I don't think I did enough to emphasize the grouping behavior and how it differs depending on which function comes after it. I highlight some key behaviors and give some recommendations below:
+
+* When `group_by()` is followed by a `summarize()`, the data will be grouped one level higher than in the `group_by()`. For example, in the code below the `group_vars()` function tells us by which variables the data are grouped. In the first set of code, they are grouped by `vegetable` in the end; but in the second, they are grouped by `date` in the end. This also means that if there is only one grouping variable, after a `summarize()`, the data are no longer grouped. This is illustrated in the third piece of code (note that it outputs `character(0)` which means there isn't one).  
+
+```{r}
+garden_harvest %>% 
+  group_by(vegetable, date) %>% 
+  summarize(tot_harvest = sum(weight)) %>% 
+  group_vars()
+
+garden_harvest %>% 
+  group_by(date, vegetable) %>% 
+  summarize(tot_harvest = sum(weight)) %>% 
+  group_vars()
+
+garden_harvest %>% 
+  group_by(date) %>% 
+  summarize(tot_harvest = sum(weight)) %>% 
+  group_vars()
+```
+
+* Using `mutate()` after a `group_by()` does not change the grouping. In the code below, we still see that the data are grouped by both `vegetable` and `date`.
+
+```{r}
+garden_harvest %>% 
+  group_by(vegetable, date) %>% 
+  mutate(tot_harvest = sum(weight)) %>% 
+  group_vars()
+```
+
+* The `ungroup()` function removes all grouping as seen in the two pieces of code below.
+
+```{r}
+garden_harvest %>% 
+  group_by(vegetable, date) %>% 
+  summarize(tot_harvest = sum(weight)) %>% 
+  ungroup() %>% 
+  group_vars()
+
+garden_harvest %>% 
+  group_by(vegetable, date) %>% 
+  mutate(tot_harvest = sum(weight)) %>% 
+  ungroup() %>% 
+  group_vars()
+```
+
+* It is important to pay close attention to how data are grouped after using `group_by()` followed by another function. The behavior of the grouping depends on which function follows the `group_by()`. Use the `group_vars()` function to check. You can always `ungroup()` and then use `group_by()` again or add a `group_by()` to explicitly assure the data are grouped in the way you intend them to be.  
+
+
 ### Resources
 
 * [R4DS](https://r4ds.had.co.nz/transform.html) chapters 5 and 18 (especially [18.2.4](https://r4ds.had.co.nz/pipes.html#use-the-pipe))
 * [dplyr cheatsheet](https://rstudio.com/resources/cheatsheets/) (search for Transformation)  
-* [dplyr documentation](https://dplyr.tidyverse.org/reference/index.html)
+* [dplyr documentation](https://dplyr.tidyverse.org/reference/index.html)  
+* [group_by documentation](https://dplyr.tidyverse.org/reference/group_by.html)(part of `dplyr` documentation)
 
 
 ### Your turn!
 
-#### Exercise 1: `select()
+#### Exercise 1: `select()`
 
 Select `vegetable`, `date`, and `weight` from the `garden_harvest` data. I have started the code for you below.
 
@@ -473,7 +525,7 @@ Find the total weight in grams and how many rows of data are in the `garden_harv
 
 #### Exercise 5b: `summarize()` with `group_by()`
 
-Find the total weight in grams harvested for each date.
+Find the total weight in grams harvested for each date. After doing to `summarize()`, how are the data grouped?
 
 ```{r sum-group}
 
@@ -481,7 +533,7 @@ Find the total weight in grams harvested for each date.
 
 #### Exercise 6: combining `dplyr` verbs
 
-I love tomatoes. Well, truthfully, I love things made out of tomatoes - spaghetti sauce, salsa, soups, and even ketchup. I always want to know which variety of tomato is most productive.  In this exercise, start with the `garden_harvest` data, filter to tomatoes, find the total weight for each variety, compute a new variable to convert the weights from grams to pounds, and lastly sort the data from largest to smallest total weight in pounds. Which variety is best? Is there any information missing?
+I love tomatoes. Well, truthfully, I love things made out of tomatoes - spaghetti sauce, salsa, soups, and even ketchup. I always want to know which variety of tomato is most productive.  In this exercise, start with the `garden_harvest` data, filter to tomatoes, find the total weight for each variety, compute a new variable to convert the weights from grams to pounds, and lastly sort the data from largest to smallest total weight in pounds. Which variety is best? Is there any information missing? Think about (and check!) how your data are grouped each step of the way.
 
 ```{r combo}
 
@@ -676,6 +728,15 @@ garden_harvest %>%
 garden_harvest %>% 
   group_by(date) %>% 
   summarize(total_weight = sum(weight))
+```
+
+To examine how data are grouped:
+
+```{r}
+garden_harvest %>% 
+  group_by(date) %>% 
+  summarize(total_weight = sum(weight)) %>% 
+  group_vars()
 ```
 
 #### Exercise 6: combining `dplyr` verbs
