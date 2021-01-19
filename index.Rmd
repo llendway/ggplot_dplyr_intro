@@ -38,7 +38,7 @@ theme_set(theme_minimal()) # my favorite ggplot theme
 library(downloadthis) # for including download buttons for files
 ```
 
-3. Load data that will be used. Data from packages can be loaded using the `data()` function. Data outside of a package can be loaded in different ways depending where it is and what type of data it is. In the code below, I use the `read_sheet()` function from the `googlesheets4` library to load data from my google drive.
+3. Load data that will be used. Data from packages can be loaded using the `data()` function. Data outside of a package can be loaded in different ways depending where it is and what type of data it is. Later in the course, we will learn different functions that can be used to read in data from other places.
 
 ```{r data}
 # Palmer Penguins data from palmerpenguins library
@@ -110,7 +110,7 @@ head(penguins)
 ### Lisa's Garden Data
 
 
-This dataset, which I named `garden_harvest` in the [Set up](#section-setup), contains data that I have collected (and am still collecting) from my personal garden this summer. You can view the google sheet [here](https://docs.google.com/spreadsheets/d/1dPVHwZgR9BxpigbHLnA0U99TtVHHQtUzNB9UR0wvb7o/edit?usp=sharing). Each row in the data is a "harvest" for a variety of a vegetable. So, vegetables might have multiple rows on a day, especially if they are things I eat twice a day (lettuce) or there are many different varieties of the vegetable (tomatoes). 
+The `garden_harvest` data contains data that I have collected  from my personal garden in the summer of 2020. You can view the original google sheet [here](https://docs.google.com/spreadsheets/d/1dPVHwZgR9BxpigbHLnA0U99TtVHHQtUzNB9UR0wvb7o/edit?usp=sharing). Each row in the data is a "harvest" for a variety of a vegetable. So, vegetables might have multiple rows on a day, especially if they are things I eat twice a day (lettuce) or there are many different varieties of the vegetable (tomatoes). 
 
 I fondly refer to my garden as the "Jungle Garden" because by the end of the summer all the plants are creeping out of their beds and it can be quite the adventure walking through it. Take a look at the video below for an in-depth tour of the garden and details around how I collect the data. 
 
@@ -158,7 +158,7 @@ download_file(
 )
 ```
 
-Next, watch the video below that walks through some examples in R Studio. You can practice along with me by downloading the R Markdown file and working through the problems. If you do that, you will likely get somewhat different results than you see in the video when using the `garden_harvest` data because the data is still changing everyday :)
+Next, watch the video below that walks through some examples in R Studio. You can practice along with me by downloading the R Markdown file and working through the problems. If you do that, you will likely get somewhat different results than you see in the video when using the `garden_harvest` data because I made the videos when I was still in the midst of collecting data :)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1SYzVMH62yw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
