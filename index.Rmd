@@ -292,7 +292,7 @@ tomatoes <- garden_harvest %>%
 
 #### Exercise 4: Boxplots
 
-Use boxplots to compare the `flipper_length_mm` by `species`. Make the boxplots horizontal. How does this graph compare to the faceted histogram you made above? What are the strenghts and weaknesses of each type of graph.
+Use boxplots to compare the `flipper_length_mm` by `species`. Make the boxplots horizontal. How does this graph compare to the faceted histogram you made above? What are the strengths and weaknesses of each type of graph.
 
 ```{r penguin-box, exercise = TRUE}
 
@@ -352,6 +352,34 @@ To recap, the six main `dplyr` verbs are summarized below.
 
 ![*Images from R Studio Cheatsheets: https://rstudio.com/resources/cheatsheets/*](../../images/dplyr_verbs.png){width=600px}
 
+### The main `dplyr` functions ... illustrated
+
+Here, I illustrate (I will not pretend to be an artist) some of the `dplyr` functions to highlight their main uses ... and hopefully make you smile. In the made up dataset, called `data` (I know, it's a terrible name), there are three variables: `pet` is the type of pet the student owns - a cat, a dog, or a fish (they all own a pet and only one in this dataset); `n_classes` is the number of classes the student is taking in this quarter; and `hours_hw` is the number of hours the student spends doing homework in a week. Descriptions are found below each illustration.
+
+<center>
+
+![The raw data](dplyr_art/data.png){width=50%}
+
+![We choose variables with `select()`](dplyr_art/select.png){width=50%}
+
+![We add variables (keeping the same number of rows) with `mutate()`. Inside the `mutate()` function we need to tell it the details of how to compute the new variable.](dplyr_art/mutate.png){width=50%}
+
+![We choose rows with `filter()`](dplyr_art/filter.png){width=50%}
+
+![We order rows with `arrange()`](dplyr_art/arrange.png){width=50%}
+
+![We group data with `group_by()`, which changes the data "internally" but won't make it look different. If you find yourself saying "for each" to describe somethig you want to do, you will probably want to use `group_by()` first.](dplyr_art/groupby_pet.png){width=50%}
+
+![We often use `summarize()` after a `group_by()`. This will add a new variable and decrease the number of rows based on how we summarize the data. Like `mutate()`, we also need to give the details of how to compute the new variable inside the function.](dplyr_art/summarize_pet.png){width=50%}
+
+![We can also `group_by()` more than one variable so whatever we do after this, there will be a row for each combination of values of those variables.](dplyr_art/groupby_complex.png){width=50%}
+
+![Here is an example of using a `summarize()` after a `group_by()` that includes two variables. See the extra section on `group_by()` and `summarize()` for more information.](dplyr_art/summarize_complex.png){width=50%}
+
+</center>
+
+### Useful functions and operators
+
 This table shows the logical operators often used with the `filter()` verb.
 
 Operator  | Meaning
@@ -389,6 +417,8 @@ Function  | Meaning
 `sum()`   | sum
 `sd()`   | standard deviation
 `IQR()`  | interquartile range
+
+### Demo video
 
 Next, watch the video below that walks through some examples in R Studio. Just like with the `ggplot()` material, you can practice the `dplyr` problems along with me by downloading the R Markdown file and working through them. If you do that, you will likely get somewhat different results than you see in the video when using the `garden_harvest` data because the data has changed since I made the video. At the time of the video, I was still collecting data from the garden :)
 
