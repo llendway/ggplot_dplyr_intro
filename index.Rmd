@@ -372,7 +372,7 @@ Here, I illustrate (I will not pretend to be an artist) some of the `dplyr` func
 
 ![We often use `summarize()` after a `group_by()`. This will add a new variable and decrease the number of rows based on how we summarize the data. Like `mutate()`, we also need to give the details of how to compute the new variable inside the function.](dplyr_art/summarize_pet.png){width=50%}
 
-![We can also `group_by()` more than one variable so whatever we do after this, there will be a row for each combination of values of those variables.](dplyr_art/groupby_complex.png){width=50%}
+![We can also `group_by()` more than one variable which will group observations by each combination of values of those variables.](dplyr_art/groupby_complex.png){width=50%}
 
 ![Here is an example of using a `summarize()` after a `group_by()` that includes two variables. See the extra section on `group_by()` and `summarize()` for more information.](dplyr_art/summarize_complex.png){width=50%}
 
