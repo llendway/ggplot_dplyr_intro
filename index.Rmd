@@ -10,6 +10,8 @@ output:
 
 ## Set up {#setup}
 
+To find other tutorials for this class, go to the main website, [https://ds112-lendway.netlify.app/](https://ds112-lendway.netlify.app/).
+
 Welcome to your first tutorial for this class, COMP/STAT 112: *Introduction to Data Science*! As you work through the different sections, there will be videos for you to watch (both embedded YouTube videos and links to the videos on Voicethread), files for you to download, and exercises for you to work through. The solutions to the exercises are usually provided, but in order to get the most out of these tutorials, you should work through the exercises and only look at the solutions if you get really stuck. You could also work through the exercises in your own R Markdown file in order to keep the results permanently. If you do that, start the file with the three code chunks I talk about below. Then copy and paste the questions into your document and put your solutions in R code chunks. 
 
 If you haven't done so already, please go through the [R Basics](https://r-basics.netlify.app/) document. 
@@ -141,7 +143,7 @@ Now, let's get ready to plot some data! The concept map below provides an overvi
 ![](../../images/ggplot_concept_map.jpg){width=600px}
 </center>
 
-First, watch the video below that introduces the `ggplot()` syntax.
+First, watch the video below that introduces the `ggplot()` syntax. You can download the slides. They will open in a web browser, and you can press the letter "p" to go to presentation mode and see my notes that go along with them.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0OtY38LVy-o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -330,7 +332,7 @@ Next, you will learn how to wrangle and manipulate data using six `dplyr` functi
 ![](../../images/dplyr_concept_map.jpg){width=600px}
 </center>
 
-First, watch the video below that introduces the `dplyr` functions.
+First, watch the video below that introduces the `dplyr` functions. Again, you can download the slides. They will open in a web browser, and you can press the letter "p" to go to presentation mode and see my notes that go along with them.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dqP0DejI7lw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
