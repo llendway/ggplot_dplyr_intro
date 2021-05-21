@@ -24,14 +24,14 @@ When you start your own document, you should have the following three code chunk
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 ```
 
-2. Libraries that are used and other settings, like a theme you would like to use throughout the document. If you have not yet installed the libraries you are going to use, you will first have to install them. Go to the Packages tab (top of lower right box) and choose Install. You can then list the packages you would like to install. Alternatively, you can use the `install.packages()` function in the console and write the name of each of the packages you want to install. Some packages (like my `gardenR` package) needs to be installed in a special way using the `install_github()` function in the `devtools` library - uncomment (delete the hashtags from the front) those two lines of code to install the library. Then either delete those two lines or comment them again. You only need to *install* packages once, although you will need to re-install them if you upgrade to a new version of R. You need to load them with the `library()` statements each time you use them. There is a good analogy with lights: installing the package is like putting the light in the socket, loading the package is like turning the light on.
+2. Libraries that are used and other settings, like a theme you would like to use throughout the document. If you have not yet installed the libraries you are going to use, you will first have to install them. Go to the Packages tab (top of lower right box) and choose Install. You can then list the packages you would like to install. Alternatively, you can use the `install.packages()` function in the console and write the name of each of the packages you want to install. Some packages (like my `gardenR` package) needs to be installed in a special way using the `install_github()` function in the `remotes` library - uncomment (delete the hashtags from the front) those two lines of code to install the library. Then either delete those two lines or comment them again. You only need to *install* packages once, although you will need to re-install them if you upgrade to a new version of R. You need to load them with the `library()` statements each time you use them. There is a good analogy with lights: installing the package is like putting the light in the socket, loading the package is like turning the light on.
 
 ```{r libraries}
 library(tidyverse)         # for graphing and data cleaning
 library(lubridate)         # for working with dates
 library(palmerpenguins)    # for palmer penguin data
-# library(devtools)        # for installing package from GitHub
-# devtools::install_github("llendway/gardenR") # run if package is not already installed
+# library(remotes)        # for installing package from GitHub
+# remotes::install_github("llendway/gardenR") # run if package is not already installed
 library(gardenR)           # for Lisa's garden data
 theme_set(theme_minimal()) # my favorite ggplot theme
 ```
